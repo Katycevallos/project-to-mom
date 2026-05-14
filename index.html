@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mother's Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  :root {
+    --bg: #f7f4ef;
+  --cream: #fffaf5;
+
+  --gold: #e7a6b1;
+  --gold-light: #f5c8cf;
+
+  --mint: #cfe8df;
+  --sky: #cbeff2;
+  --peach: #f6c6b8;
+  --lavender: #d8c9e8;
+
+  --text: #6d5c63;
+  --muted: rgba(109, 92, 99, 0.55);
+
+  --serif: 'Cormorant Garamond', serif;
+  --sans: 'Jost', sans-serif;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+
+ body {
+  background:
+    radial-gradient(circle at top left, var(--sky), transparent 35%),
+    radial-gradient(circle at top right, #f0b3c2, transparent 30%),
+    radial-gradient(circle at bottom right, var(--peach), transparent 35%),
+    radial-gradient(circle at center, #edf3df, transparent 40%),
+    var(--bg);
+
+  color: var(--text);
+  font-family: var(--sans);
+  overflow-x: hidden;
+  }
+ 
+  /* ── PAGE SYSTEM ── */
+  .page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .page.active { display: block; }
+ 
+  /* ══════════════════════════════════════════
+     PAGE 1 — HOME
+  ══════════════════════════════════════════ */
+  #page1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  #page1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,169,126,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(200,169,126,0.06) 0%, transparent 60%);
+  }
+ 
+  .home-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+ 
+  .home-label {
+    font-family: var(--sans);
+    font-weight: 300, bold;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #d3a2b1;
+    overflow: hidden;
+  }
+ 
+  .home-label span {
+    display: inline-block;
+    transform: translateY(100%);
+  }
+ 
+  .title-line {
+    overflow: hidden;
+    line-height: 1.05;
+  }
+ 
+  .title-line span {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(3rem, 10vw, 8rem);
+    color: var(--muted);
+    letter-spacing: -0.01em;
+    transform: translateY(110%);
+  }
+ 
+  .title-line.gold span { color: var(--gold); font-style: normal; font-weight: 600; }
+ 
+  .home-sub {
+    overflow: hidden;
+  }
+ 
+  .home-sub span {
+    display: inline-block;
+    font-family: var(--sans);
+    font-weight: 200, bold;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #d3a2b1;
+    transform: translateY(100%);
+  }
+ 
+  .btn-enter {
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+ 
+  .btn-enter button {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: transparent;
+    border: 1.5px solid rgba(200,169,126,0.4);
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+  }
+ 
+  .btn-enter button:hover {
+    background: rgba(200,169,126,0.08);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+ 
+  /* ── Grain overlay ── */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+ 
+  /* ══════════════════════════════════════════
+     PAGE 2 — GALLERY
+  ══════════════════════════════════════════ */
+  #page2,
+#page3 {
+  background: transparent;
+}
+ 
+  .gallery-intro {
+    height: 40vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4rem;
+    opacity: 0;
+  }
+ 
+  .gallery-intro p {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+ 
+  .gallery-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 0 6rem;
+  }
+ 
+  .gallery-item {
+    width: min(640px, 90vw);
+    aspect-ratio: 16/10;
+    position: relative;
+    cursor: default;
+    will-change: transform, opacity, filter;
+  }
+ 
+  .gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  border-radius: 28px;
+
+  filter:
+    saturate(0.95)
+    brightness(1.02);
+
+  box-shadow:
+    0 10px 30px rgba(214, 174, 187, 0.18);
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+ 
+  /* Placeholder squares */
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #1a1612;
+    border: 1px solid rgba(200,169,126,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+ 
+  .gallery-placeholder .ph-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: rgba(200,169,126,0.2);
+    font-weight: 300;
+  }
+ 
+  .gallery-placeholder .ph-label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(200,169,126,0.25);
+  }
+ 
+  .gallery-caption {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(200,169,126,0.3);
+  }
+ 
+  /* ── Gallery End Buttons ── */
+  .gallery-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 2rem 10rem;
+    opacity: 0;
+  }
+ 
+  .gallery-end-msg {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    line-height: 1.4;
+  }
+ 
+  .end-buttons {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+ 
+  .btn-audio, .btn-letter {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 1rem 2.5rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: none;
+    outline: none;
+  }
+ 
+  .btn-audio {
+    color: var(--bg);
+    background: var(--gold);
+  }
+ 
+  .btn-audio:hover { background: var(--gold-light); }
+ 
+  .btn-audio.playing { background: rgba(200,169,126,0.2); color: var(--gold); border: 1px solid rgba(200,169,126,0.4); }
+ 
+  .btn-letter {
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid rgba(200,169,126,0.4);
+  }
+ 
+  .btn-letter:hover { background: rgba(200,169,126,0.08); border-color: var(--gold); }
+ 
+  .btn-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+ 
+  /* ══════════════════════════════════════════
+     PAGE 3 — LETTER
+  ══════════════════════════════════════════ */
+ 
+ 
+  .letter-wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 8vw, 6rem);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+ 
+  .letter-heading {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+ 
+  .letter-body {
+    width: 100%;
+    text-align: center;
+  }
+ 
+  .letter-line {
+    overflow: hidden;
+    line-height: 1;
+    margin-bottom: 0.35em;
+  }
+ 
+  .letter-line span {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    font-weight: 300;
+    color: var(--muted);
+    transform: translateY(110%);
+    line-height: 1.5;
+  }
+ 
+  .letter-line.accent span { color: var(--gold); font-style: italic; }
+  .letter-line.small span { font-size: clamp(0.9rem, 2.5vw, 1.2rem); color: var(--muted); }
+  .letter-line.gap { margin-bottom: 1.5em; }
+  .letter-line.large span { font-size: clamp(2rem, 6vw, 4rem); font-style: italic; color: var(--gold-light); }
+ 
+  .letter-signature {
+    margin-top: 4rem;
+    overflow: hidden;
+  }
+ 
+  .letter-signature span {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--gold);
+    transform: translateY(110%);
+  }
+ 
+  .back-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    font-family: var(--sans);
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #9f6f7f;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+    z-index: 50;
+  }
+ 
+  .back-btn:hover { color: var(--gold); }
+ 
+  /* ── Password modal ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 250, 245, 0.55);
+    backdrop-filter: blur(18px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+ 
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+ 
+  .modal-box {
+  width: min(420px, 90vw);
+
+  padding: 3rem;
+
+  border-radius: 32px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0.2)
+    );
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 10px 40px rgba(214, 174, 187, 0.18);
+
+  backdrop-filter: blur(24px);
+
+  text-align: center;
+
+  transform: translateY(20px);
+
+  transition: transform 0.4s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+ 
+  .modal-overlay.open .modal-box { transform: translateY(0); }
+ 
+  .modal-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #9f6f7f;
+    font-weight: 300;
+  }
+ 
+  .modal-hint {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(109, 92, 99, 0.65);
+    line-height: 1.8;
+  }
+ 
+  .modal-hint strong {
+    color: #d991a2;
+    font-weight: 500;
+  }
+ 
+  .modal-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 2px;
+  border: 1px solid rgba(217,145,162,0.25);
+  background: rgba(255,255,255,0.45);
+  color: #7d6871;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-align: center;
+  outline: none;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+}
+ 
+  .modal-input:focus {
+  border-color: rgba(217,145,162,0.6);
+
+  background: rgba(255,255,255,0.7);
+
+  box-shadow:
+    0 0 0 4px rgba(245, 200, 207, 0.25);
+}
+  .modal-input::placeholder {
+  color: rgba(125,104,113,0.35);
+  letter-spacing: 0.2em;
+}
+ 
+  .modal-error {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #d87b8f;
+    height: 1rem;
+    transition: opacity 0.3s;
+  }
+ 
+  .modal-submit {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--gold);
+    border: none;
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+  }
+ 
+  .modal-submit:hover { background: var(--gold-light); }
+ 
+  .modal-close {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+ 
+  .modal-close:hover { color: var(--cream); }
+ 
+  /* Audio hidden */
+  #bgAudio { display: none; }
+ 
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(200,169,126,0.3); border-radius: 2px; }
+</style>
+</head>
+<body>
+ 
+<div class="grain"></div>
+ 
+<!-- ══ PAGE 1: HOME ══ -->
+<div id="page1" class="page active">
+  <div class="home-inner">
+    <div class="home-label"><span>A message for you</span></div>
+ 
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+      <div class="title-line"><span>Happy</span></div>
+      <div class="title-line gold"><span>Mother's</span></div>
+      <div class="title-line"><span>Day</span></div>
+    </div>
+ 
+    <div class="home-sub"><span>with all the love in the world</span></div>
+ 
+    <div class="btn-enter">
+      <button id="enterBtn">Enter &nbsp;→</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- ══ PAGE 2: GALLERY ══ -->
+<div id="page2" class="page">
+  <button class="back-btn" id="galleryBackBtn">← Back</button>
+  <div class="gallery-intro">
+    <p>A few of my favourite moments with you</p>
+  </div>
+ 
+  <div class="gallery-track" id="galleryTrack">
+ 
+    <div class="gallery-item" data-index="1">
+      <img
+      src="images/1.jpg"
+    alt="Memory with my mom"
+    class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+    <div class="gallery-item" data-index="2">
+      <img
+      src="images/1.jpg"
+      alt="Memory with my mom"
+      class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+    <div class="gallery-item" data-index="3">
+      <img
+      src="images/1.jpg"
+      alt="Memory with my mom"
+      class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+    <div class="gallery-item" data-index="4">
+      <img
+      src="images/1.jpg"
+      alt="Memory with my mom"
+      class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+    <div class="gallery-item" data-index="5">
+      <img
+      src="images/1.jpg"
+      alt="Memory with my mom"
+      class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+    <div class="gallery-item" data-index="6">
+      <img
+      src="images/1.jpg"
+      alt="Memory with my mom"
+      class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+    <div class="gallery-item" data-index="7">
+      <img
+      src="images/1.jpg"
+      alt="Memory with my mom"
+      class="gallery-img"/>
+      <div class="gallery-caption"></div>
+    </div>
+ 
+  </div>
+ 
+  <div class="gallery-end" id="galleryEnd">
+    <p class="gallery-end-msg">This song reminds me of you and all <br>and all of the good memories with you</p>
+    <div class="end-buttons">
+      <button class="btn-audio" id="audioBtn">
+        <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <span id="audioBtnText">Play our song</span>
+      </button>
+      <button class="btn-letter" id="letterBtn">
+        <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        Letter
+      </button>
+    </div>
+  </div>
+ 
+  <!-- Replace src with your audio file -->
+  <audio id="bgAudio" loop>
+    <source src="music/song1.mp3" type="audio/mpeg">
+  </audio>
+</div>
+ 
+<!-- ══ PAGE 3: LETTER ══ -->
+<div id="page3" class="page">
+  <button class="back-btn" id="backBtn">← Back</button>
+ 
+  <div class="letter-wrap">
+    <p class="letter-heading">Happy Mothers Day Mom</p>
+ 
+    <div class="letter-body" id="letterBody">
+      <div class="letter-line small"><span>Thank you for everything you have done for me over the years</span></div>
+      <div class="letter-line small gap"><span> hank you for your endless love, patience, and kindness.</span></div>
+ 
+      <div class="letter-line"><span>I hope you feel incredibly pampered and celebrated today because you deserve the absolute best.</span></div>
+      <div class="letter-line accent gap"><span>I love you</span></div>
+ 
+      <div class="letter-line small"><span>I know I dont call you as much as I should,</span></div>
+      <div class="letter-line small"><span>but I hope you know how much I love you </span></div>
+      <div class="letter-line small gap"><span>and how much  look up to you in so many ways.</span></div>
+ 
+      <div class="letter-line"><span>To the best mom in the worldddd</span></div>
+      <div class="letter-line accent gap"><span>I Love You </span></div>
+ 
+      <div class="letter-line small"><span>Soooo much</span></div>
+      <div class="letter-line small gap"><span>❤️</span></div>
+ 
+      <div class="letter-line large"><span>Thank you.</span></div>
+      <div class="letter-line accent"><span>(Ps. )</span></div>
+    </div>
+ 
+    <div class="letter-signature" id="letterSig">
+      <span>With all my love — xxxx</span>
+    </div>
+  </div>
+</div>
+ 
+<!-- ══ PASSWORD MODAL ══ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <p class="modal-title">Enter to continue</p>
+    <p class="modal-hint">Hint: <strong>Who is your favorite child?</strong></p>
+    <input
+      class="modal-input"
+      id="pwInput"
+      type="password"
+      placeholder="••••"
+      maxlength="20"
+      autocomplete="off"
+    />
+    <p class="modal-error" id="modalError">&nbsp;</p>
+    <button class="modal-submit" id="modalSubmit">Enter</button>
+    <button class="modal-close" id="modalClose">Cancel</button>
+  </div>
+</div>
+ 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+ 
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+ 
+  const PASSWORD = '1234';
+ 
+  /* ── DOM refs ── */
+  const page1 = document.getElementById('page1');
+  const page2 = document.getElementById('page2');
+  const page3 = document.getElementById('page3');
+  const enterBtn = document.getElementById('enterBtn');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const pwInput = document.getElementById('pwInput');
+  const modalSubmit = document.getElementById('modalSubmit');
+  const modalClose = document.getElementById('modalClose');
+  const modalError = document.getElementById('modalError');
+  const audioBtn = document.getElementById('audioBtn');
+  const audioBtnText = document.getElementById('audioBtnText');
+  const letterBtn = document.getElementById('letterBtn');
+  const backBtn = document.getElementById('backBtn');
+  const bgAudio = document.getElementById('bgAudio');
+  const galleryBackBtn = document.getElementById('galleryBackBtn');
+ 
+  /* ══════════════════════════════════════════
+     PAGE 1 ENTRANCE ANIMATION
+  ══════════════════════════════════════════ */
+  const tl1 = gsap.timeline({ defaults: { ease: 'power4.out' } });
+ 
+  tl1
+    .to('.home-label span',    { y: '0%', duration: 1, delay: 0.3 })
+    .to('.title-line span',    { y: '0%', duration: 1.2, stagger: 0.12 }, '-=0.5')
+    .to('.home-sub span',      { y: '0%', duration: 1 }, '-=0.6')
+    .to('.btn-enter',          { opacity: 1, y: 0, duration: 0.8 }, '-=0.4');
+ 
+  /* ══════════════════════════════════════════
+     PASSWORD MODAL
+  ══════════════════════════════════════════ */
+  function openModal() {
+    modalOverlay.classList.add('open');
+    pwInput.value = '';
+    modalError.textContent = '\u00a0';
+    setTimeout(() => pwInput.focus(), 400);
+  }
+ 
+  function closeModal() {
+    modalOverlay.classList.remove('open');
+  }
+ 
+  function tryPassword() {
+    if (pwInput.value === PASSWORD) {
+      closeModal();
+      goToPage2();
+    } else {
+      modalError.textContent = 'Incorrect password. Try again.';
+      gsap.fromTo('.modal-box', { x: -8 }, { x: 0, duration: 0.4, ease: 'elastic.out(1,0.3)', keyframes: [
+        { x: -8 }, { x: 8 }, { x: -5 }, { x: 5 }, { x: 0 }
+      ]});
+      pwInput.value = '';
+      pwInput.focus();
+    }
+  }
+ 
+  enterBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  modalSubmit.addEventListener('click', tryPassword);
+ 
+  pwInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') tryPassword();
+    if (e.key === 'Escape') closeModal();
+  });
+ 
+  modalOverlay.addEventListener('click', e => {
+    if (e.target === modalOverlay) closeModal();
+  });
+ 
+  /* ══════════════════════════════════════════
+     PAGE 2 — GALLERY
+  ══════════════════════════════════════════ */
+  function showPage(pageToShow) {
+  const pages = document.querySelectorAll('.page');
+
+  pages.forEach(page => {
+    page.classList.remove('active');
+    page.style.display = 'none';
+  });
+
+  pageToShow.style.display = 'block';
+
+  requestAnimationFrame(() => {
+    pageToShow.classList.add('active');
+  });
+
+  window.scrollTo(0, 0);
+}
+  
+  function goToPage2() {
+  showPage(page2);
+
+  gsap.to('.gallery-intro', {
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    delay: 0.3,
+    ease: 'power3.out'
+  });
+
+  const items = gsap.utils.toArray('.gallery-item');
+
+  gsap.set(items, {
+    opacity: 0.25,
+    filter: 'blur(6px)',
+    scale: 0.96
+  });
+
+  gsap.from(items, {
+    y: 60,
+    duration: 1,
+    stagger: 0.1,
+    delay: 0.6,
+    ease: 'power3.out',
+    onComplete: initGalleryScroll
+  });
+
+  gsap.to('#galleryEnd', {
+    scrollTrigger: {
+      trigger: '#galleryEnd',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    ease: 'power3.out'
+  });
+}
+ 
+  function initGalleryScroll() {
+    const items = document.querySelectorAll('.gallery-item');
+ 
+    function updateHighlight() {
+      const winH = window.innerHeight;
+      const centerY = window.scrollY + winH * 0.5;
+      let closestItem = null;
+      let closestDist = Infinity;
+ 
+      items.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const itemCenterY = rect.top + rect.height * 0.5 + window.scrollY;
+        const dist = Math.abs(itemCenterY - centerY);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestItem = item;
+        }
+      });
+ 
+      items.forEach(item => {
+        if (item === closestItem) {
+          gsap.to(item, {
+            opacity: 1,
+            filter: 'blur(0px)',
+            scale: 1,
+            duration: 0.6,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        } else {
+          gsap.to(item, {
+            opacity: 0.2,
+            filter: 'blur(5px)',
+            scale: 0.96,
+            duration: 0.6,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        }
+      });
+    }
+ 
+    window.addEventListener('scroll', updateHighlight, { passive: true });
+    updateHighlight();
+  }
+ 
+  /* ══════════════════════════════════════════
+     AUDIO
+  ══════════════════════════════════════════ */
+  let isPlaying = false;
+
+audioBtn.addEventListener('click', () => {
+
+  if (!isPlaying) {
+
+    bgAudio.play();
+
+    isPlaying = true;
+
+    audioBtnText.textContent = 'Pause Song';
+
+    audioBtn.classList.add('playing');
+
+  } else {
+
+    bgAudio.pause();
+
+    isPlaying = false;
+
+    audioBtnText.textContent = 'Play our song';
+
+    audioBtn.classList.remove('playing');
+  }
+
+});
+ 
+  /* ══════════════════════════════════════════
+     PAGE 3 — LETTER
+  ══════════════════════════════════════════ */
+  letterBtn.addEventListener('click', goToPage3);
+ 
+  function goToPage3() {
+  showPage(page3);
+
+  ScrollTrigger.getAll().forEach(st => st.kill());
+
+  animateLetter();
+  }
+ 
+  function animateLetter() {
+    const lines = document.querySelectorAll('.letter-line span');
+    const sig   = document.querySelector('.letter-signature span');
+ 
+    gsap.set(lines, { y: '110%' });
+    gsap.set(sig,   { y: '110%' });
+ 
+    /* Staggered line reveal */
+    gsap.to(lines, {
+      y: '0%',
+      duration: 0.9,
+      stagger: 0.12,
+      ease: 'power3.out',
+      delay: 0.5
+    });
+ 
+    gsap.to(sig, {
+      y: '0%',
+      duration: 1,
+      ease: 'power3.out',
+      delay: 0.5 + lines.length * 0.12 + 0.4
+    });
+  }
+ 
+  backBtn.addEventListener('click', () => {
+  showPage(page2);
+});
+galleryBackBtn.addEventListener('click', () => {
+  showPage(page1);
+
+  gsap.fromTo('.home-inner',
+    {
+      opacity: 0,
+      y: 30
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power3.out'
+    }
+  );
+});
+</script>
+</body>
+</html>
