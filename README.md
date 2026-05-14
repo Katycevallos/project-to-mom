@@ -40,7 +40,7 @@ Responsive typography, spacing, and layouts were implemented using:
 
 ## 🚀 Live Demo
 
-https://katycevallos.github.io/project-to-mom/
+[https://katycevallos.github.io/project-to-mom/](https://katycevallos.github.io/project-to-mom/)
 
 Password: 1234
 
